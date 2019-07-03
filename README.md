@@ -9,14 +9,10 @@ You are given a string stored in variable `problem`. Write code so that you prin
 ```swift
 var problem = "split this string into words and print them on separate lines"
 
-// Your code
+var problem = "split this string into words and print them on separate lines"
+print(problem.replacingOccurrences(of: " ", with: "\n"))
+
 ```
-
-Example
-
-Input:
-`var problem ="split this string into words and print them on separate lines"`
-
 Output:
 ```swift
 split
@@ -52,7 +48,16 @@ Example:
 Sample Input: `"Swift is the best language"`
 
 Sample Output: `"language best the is Swift"`
+```
+var myString = "Swift is the best language"
+var myString2 = myString.components(separatedBy: " ")
+var myStringBackwards = " "
 
+for i in myString2 {
+myStringBackwards = "\(i) " + myStringBackwards
+}
+print(myStringBackwards)
+```
 
 ## Question 4
 
