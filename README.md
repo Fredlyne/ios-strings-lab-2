@@ -36,6 +36,19 @@ Given a string `testString` create a new variable called `condensedString` that 
 ```swift
 let testString = "  How   about      thesespaces  ?  "
 //condensedString = " How about thesespaces ? "
+
+let testString = "  How   about      these  spaces  ?  "
+var currentArray = ""
+var stringArray = testString.components(separatedBy: .whitespacesAndNewlines)
+print(stringArray)
+for character in stringArray {
+if character == "" {
+continue
+}
+currentArray += character + " "
+}
+print(currentArray)
+
 ```
 
 
@@ -68,8 +81,24 @@ Example:
 Sample Input: `"danaerys dad cat civic bottle"`
 
 Sample Output: `2`
+```
+let string = "danaerys dad cat civic bottle"
+
+var stringComponents = string.components(separatedBy: " ")
 
 
+var count = 0
+
+var reversedString = String(string.reversed())
+string == reversedString
+
+for i in stringComponents {
+if  i == String(i.reversed()) {
+count += 1
+}
+}
+print(count)
+```
 ## Question 5
 
 You are given a string representing an **attendance record** for a student. The record only contains the following three characters:
@@ -87,7 +116,34 @@ Example:
 Sample Input: `"PPALLP"`
 
 Sample Output: `true`
+```
+let atndRecord = "PPALLP"
+var l = "L"
+var a = "A"
+var countA = 0
+var countB = 0
+var noReward = false
 
+for i in atndRecord {
+if String(i) == a {
+countA += 1
+}
+if countA > 1 {
+print(noReward)
+break
+}
+if String(i) == l {
+countB += 1
+}
+if countB > 2 {
+print(noReward)
+break
+} else {
+print(true)
+break
+}
+}
+```
 
 ## Question 6
 
@@ -104,3 +160,20 @@ Sample Output1: `False`
 Sample Input2: `("aa", "aab")`
 
 Sample Output2: `True`
+```
+var tuple1 = ("a", "b")
+var tuple2 = ("aa", "aab")
+
+if tuple1.1.contains(tuple1.0.replacingOccurrences(of: " ", with: ""))
+{
+print(true)
+} else {
+print(false)
+}
+if tuple2.1.contains(tuple2.0.replacingOccurrences(of: " ", with: ""))
+{
+print(true)
+} else {
+print(false)
+}
+```
